@@ -32,7 +32,8 @@ def bind_socket():
         bind_socket()
 
 # Establish connection with a client (socket must be listening)
-
 def socket_accept():
-    conn.address = s.accept()
-    print()
+    conn,address = s.accept()
+    print("Connection has been established! |" + " IP " + address[0] + " | Port" + str(address[1]))
+    send_command(conn)
+    conn.close()
